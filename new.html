@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxon | Batmobile Tumbler</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7f9;
+            color: #0b0b0c;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .glow-platform {
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 70%);
+            transform: rotateX(75deg);
+        }
+
+        .hotspot-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.4);
+                opacity: 0.7;
+            }
+        }
+
+        .tooltip-line {
+            width: 1px;
+            background: linear-gradient(to top, #0b0b0c 50%, transparent);
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col p-4 md:p-8">
+
+    <!-- Main Content Area -->
+    <main class="flex-1 relative mx-auto w-full grid grid-cols-12 gap-6">
+
+        <!-- Left Panel: Title & Basic Info -->
+        <div class="col-span-12 lg:col-span-3 flex flex-col justify-between py-4">
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <h2 class="text-5xl font-bold tracking-tight">Batmobile Tumbler</h2>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass p-4 rounded-3xl flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Power</p>
+                        <p class="text-2xl font-bold">800 <span class="text-sm font-medium text-gray-400">hp</span></p>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="glass p-4 rounded-3xl flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Mileage</p>
+                        <p class="text-2xl font-bold">26,793 <span class="text-sm font-medium text-gray-400">km</span>
+                        </p>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel: The Car & Platform -->
+        <div class="col-span-12 lg:col-span-6 relative flex flex-col items-center">
+
+            <!-- Glowing Platform -->
+
+            <!-- The Car Image -->
+            <div class="relative z-10 w-full flex justify-center">
+                <img src="map.png" alt="Batmobile Tumbler" class="w-full h-auto drop-shadow-2xl">
+            </div>
+        </div>
+
+        <!-- Right Panel: Advanced Stats -->
+        <div class="col-span-12 lg:col-span-3 py-4 space-y-6 flex flex-col">
+            <!-- Engine Stats -->
+            <div class="space-y-4">
+                <div class="glass p-5 rounded-3xl relative">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Acceleration</p>
+                        <svg class="w-5 h-5 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-2xl font-bold">120 <span
+                            class="text-sm font-medium text-gray-400 tracking-normal">km/h</span></p>
+                    <div class="absolute right-4 bottom-4 w-12 h-12 flex items-center justify-center opacity-10">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="50" cy="50" r="40" />
+                            <path d="M50 20v10m21.2 4.8l-7 7M80 50h-10" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="glass p-5 rounded-3xl relative">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Acceleration</p>
+                        <svg class="w-5 h-5 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-2xl font-bold">120 <span
+                            class="text-sm font-medium text-gray-400 tracking-normal">km/h</span></p>
+                    <div class="absolute right-4 bottom-4 w-12 h-12 flex items-center justify-center opacity-10">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="50" cy="50" r="40" />
+                            <path d="M50 20v10m21.2 4.8l-7 7M80 50h-10" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="glass p-5 rounded-3xl relative">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Top speed</p>
+                        <svg class="w-5 h-5 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <p class="text-2xl font-bold">450 <span
+                            class="text-sm font-medium text-gray-400 tracking-normal">km/h</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Action Row -->
+    <footer class="mx-auto w-full mt-12 grid grid-cols-12 gap-6 pb-12">
+        <div class="col-span-12 lg:col-span-9 space-y-6">
+            <div class="flex items-center justify-between px-2">
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Essential Upgrades</h3>
+                <div class="flex gap-2">
+                    <button
+                        class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-colors cursor-pointer text-gray-400 hover:text-black">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button
+                        class="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-colors cursor-pointer text-gray-400 hover:text-black">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="glass group rounded-[32px] p-4 border border-white/60 hover:border-lime-400/50 transition-all duration-500 cursor-pointer">
+                    <div class="aspect-square rounded-2xl bg-gray-100 mb-4 overflow-hidden relative">
+                        <img src="/placeholder.svg?height=300&width=300" alt="Tactical Helmet"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-bold tracking-tighter shadow-sm">
+                            NEW</div>
+                    </div>
+                    <div class="px-2">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Protection</p>
+                        <h4 class="text-sm font-bold mb-3">MK-II Tactical Helmet</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-black">₹45,000</span>
+                            <button
+                                class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center hover:bg-lime-500 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass group rounded-[32px] p-4 border border-white/60 hover:border-lime-400/50 transition-all duration-500 cursor-pointer">
+                    <div class="aspect-square rounded-2xl bg-gray-100 mb-4 overflow-hidden relative">
+                        <img src="/placeholder.svg?height=300&width=300" alt="Nitro Fuel"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Performance</p>
+                        <h4 class="text-sm font-bold mb-3">Nitro-X Fuel Additive</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-black">₹12,800</span>
+                            <button
+                                class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center hover:bg-lime-500 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass group rounded-[32px] p-4 border border-white/60 hover:border-lime-400/50 transition-all duration-500 cursor-pointer">
+                    <div class="aspect-square rounded-2xl bg-gray-100 mb-4 overflow-hidden relative">
+                        <img src="/placeholder.svg?height=300&width=300" alt="Bat-Drone"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tech</p>
+                        <h4 class="text-sm font-bold mb-3">Scout Drone Unit</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-black">₹1,15,000</span>
+                            <button
+                                class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center hover:bg-lime-500 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+            <div class="glass rounded-[40px] p-8 border-2 border-white flex-1 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Build Summary</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-400">Base Vehicle</span>
+                            <span class="font-bold">₹1,85,00,000</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-400">Tactical Paint</span>
+                            <span class="font-bold">Included</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-gray-400">Destination Fee</span>
+                            <span class="font-bold">₹2,50,000</span>
+                        </div>
+                        <div class="border-t border-gray-200/50 pt-4 mt-4 flex justify-between items-end">
+                            <span class="text-[10px] font-bold uppercase text-gray-400">Est. Total</span>
+                            <span class="text-2xl font-black tracking-tighter">₹1.87Cr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    class="w-full bg-[#0b0b0c] text-white py-5 rounded-2xl font-bold text-sm tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-black/20 mt-8">
+                    PROCEED TO CHECKOUT
+                </button>
+            </div>
+
+            <a href="#"
+                class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-colors">
+                Download Tech Specs (PDF)
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth hover animations for cards
+        const cards = document.querySelectorAll('.glass');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.4s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Interactive Hotspots
+        const hotspots = document.querySelectorAll('.hotspot-pulse');
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', () => {
+                // Potential logic to switch tooltips or content
+                console.log("[v0] Hotspot clicked");
+            });
+        });
+
+        // Nav active state animation
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(i => {
+                    i.classList.remove('bg-[#0b0b0c]', 'text-white');
+                    i.classList.add('text-gray-600');
+                });
+                item.classList.add('bg-[#0b0b0c]', 'text-white');
+                item.classList.remove('text-gray-600');
+            });
+        });
+    </script>
+</body>
+
+</html>
