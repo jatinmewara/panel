@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envato Style Stacking Cards</title>
+    <style>
+        /* CSS Variables for easy customization */
+        :root {
+            --card-height: 500px;
+            --card-top-offset: 100px;
+            --transition-speed: 0.6s;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000; /* Dark theme background */
+            color: #fff;
+        }
+
+        /* Spacer for scrolling room */
+        .spacer {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        /* Main Container */
+        .stacking-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-bottom: 300px; /* Space at bottom for last card to scroll */
+        }
+
+        .stacking-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0; /* Gap is managed by sticky positioning */
+        }
+
+        /* The Magic: Sticky Stacking */
+        .card-item {
+            position: sticky;
+            top: var(--card-top-offset);
+            height: var(--card-height);
+            width: 100%;
+            margin-bottom: 80px; /* Space between cards while scrolling */
+            transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        /* Card Content Design */
+        .card-inner {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Individual Card Colors (Envato Style) */
+        .card-item:nth-child(1) .card-inner { background: #1a1a1a; color: #fff; }
+        .card-item:nth-child(2) .card-inner { background: #d0f1e0; color: #000; }
+        .card-item:nth-child(3) .card-inner { background: #fff; color: #000; }
+
+        .text-box {
+            flex: 1.2;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-box h3 {
+            font-size: 2.5rem;
+            margin: 0 0 20px 0;
+        }
+
+        .text-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .video-box {
+            flex: 1;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-cta {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            width: max-content;
+        }
+
+        /* White card button fix */
+        .card-item:nth-child(3) .btn-cta { background: #1a1a1a; color: #fff; }
+
+        @media (max-width: 768px) {
+            .card-inner { flex-direction: column; }
+            .card-item { height: auto; min-height: 600px; }
+            .text-box { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spacer">
+        <h1 class="section-title">Scroll Down to See the Magic</h1>
+    </div>
+
+    <div class="stacking-container">
+        <ul class="stacking-list">
+            
+            <li class="card-item">
+                <div class="card-inner">
+                    <div class="text-box">
+                        <h3>Every category, covered</h3>
+                        <p>Make your best work yet with a comprehensive library of high-quality, creative assets — video, audio, photos, graphics, templates, and more.</p>
+                    </div>
+                    <div class="video-box">
+                        <video src="https://assets.elements.envato.com/apps/storefront/categories.compressed-da70d422014faf4cd1a0.webm" loop muted playsinline></video>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card-item">
+                <div class="card-inner">
+                    <div class="text-box">
+                        <h3>Full suite of AI tools</h3>
+                        <p>Get full access to our entire set of AI tools — like VideoGen, MusicGen, ImageGen, and more. Always working with the best tech available.</p>
+                    </div>
+                    <div class="video-box">
+                        <video src="https://assets.elements.envato.com/apps/storefront/assets.compressed-927e2a8084f1868f310b.webm" loop muted playsinline></video>
+                    </div>
+                </div>
+            </li>
+
+            <li class="card-item">
+                <div class="card-inner">
+                    <div class="text-box">
+                        <h3>Unlimited downloads</h3>
+                        <p>Get all the upsides with full access to any asset at no extra cost, giving you great value in one simple subscription.</p>
+                        <a href="#" class="btn-cta">Start Creating Now</a>
+                    </div>
+                    <div class="video-box">
+                        <video src="https://assets.elements.envato.com/apps/storefront/unlimited.compressed-d5c358ace72cad376519.webm" loop muted playsinline></video>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="spacer">
+        <h2 class="section-title">Ready to build your next project?</h2>
+    </div>
+
+    <script>
+        // --- 1. SMOOTH SCALING EFFECT ---
+        // Jab card sticky point par pahunchta hai, toh wo halka sa zoom-out hoga
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card-item');
+            
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const stickyPoint = 100; // top offset in CSS
+
+                if (rect.top <= stickyPoint) {
+                    // Calculation for scale (0.9 to 1.0)
+                    let scaleValue = 1 - (Math.abs(rect.top - stickyPoint) / 3000);
+                    if (scaleValue < 0.9) scaleValue = 0.9;
+                    
+                    // Card ko thoda andher (darken) bhi karte hain depth ke liye
+                    let brightnessValue = 1 - (Math.abs(rect.top - stickyPoint) / 1000);
+                    if (brightnessValue < 0.7) brightnessValue = 0.7;
+
+                    card.style.transform = `scale(${scaleValue})`;
+                    card.style.filter = `brightness(${brightnessValue})`;
+                } else {
+                    card.style.transform = `scale(1)`;
+                    card.style.filter = `brightness(1)`;
+                }
+            });
+        });
+
+        // --- 2. SMART VIDEO PLAYER ---
+        // Video tabhi chalega jab wo screen par dikhega
+        const observerOptions = {
+            threshold: 0.6 // Jab 60% video dikhe tab play ho
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target.querySelector('video');
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-item').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
